@@ -80,7 +80,8 @@ namespace MessageClient
                         Dialogs[MyData.Name].Add(new MessageWrap() { From = MyData.Name, Date = DateTime.Now.ToString(), Message = MyData.Message });
                         MessageGrid.Dispatcher.BeginInvoke(new Action(delegate ()
                         {
-                            MessageGrid.Items.Add(new MessageWrap() { From = MyData.Name, Date = DateTime.Now.ToString(), Message = MyData.Message });
+							if (SelectedTarget == MyData.Name)
+					            MessageGrid.Items.Add(new MessageWrap() { From = MyData.Name, Date = DateTime.Now.ToString(), Message = MyData.Message });
                         }));
                     }
                 }
